@@ -1,0 +1,75 @@
+img{
+  padding: 10px;
+}
+
+
+.container{
+  background-color:rgba(240, 165, 135, 0.596);
+  padding: 24px;
+  border: 25px;
+  border: rgba(209, 85, 27, 0.808);
+}
+
+body {
+  background: rgba(243, 190, 169, 0.822);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(48, 18, 7, 0.836);
+  font: medium;
+  font-weight: 550;
+}
+
+.jumbotron-style{
+  background-color:rgba(245, 168, 138, 0.596);
+  padding: 24px;
+  border: 25px;
+  border: rgba(156, 61, 5, 0.808);
+}
+
+.news {
+  color: black;
+}
+
+.btn {
+  background-color: rgb(66, 41, 18);
+  color: rgb(245, 245, 245);
+  font-weight: bold;
+  
+}
+
+
+
+.labels{
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  text-justify: center;
+}
+
+
+
+.table{
+  border-style: groove;
+  justify-content: space-around;
+  }
+
+tbody {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid rgb(250, 211, 195);
+  padding: 8px;
+}
+
+tr:nth-child(even){background: #fdf2ec;}
+
+tr:hover {background-color: rgb(253, 174, 143);}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #e06f4d;
+  color: rgb(24, 2, 2);
+}
