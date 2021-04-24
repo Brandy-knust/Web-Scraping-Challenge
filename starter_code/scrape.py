@@ -2,7 +2,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 import time
 from webdriver_manager.chrome import ChromeDriverManager
-
+import pandas as pd
 
 def scrape_info():
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -74,7 +74,7 @@ def scrape_info():
         hemisphere_titles.append(sample_title)
     hemisphere_dict = dict(zip(hemisphere_titles, hemisphere_image_urls))    
 
-    return_data = {"Latest Mars News":news_title, "News":news_p, "Featured Mars Image":featured_image_url, "Mars Facts":mars_df, "Mars Hemispheres": hemisphere_dict}
+    return_data = {"LatestMarsNews":news_title, "News":news_p, "FeaturedMarsImage":featured_image_url, "MarsFacts":html_string, "MarsHemispheres": hemisphere_dict}
     driver.close()
     return return_data
     
