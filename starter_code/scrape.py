@@ -19,16 +19,7 @@ def scrape_info():
     item_list=soup.find(class_="item_list")
     results=item_list.find_all(class_="content_title")
     news_title=results[0].text
-
-    href=driver.find_element_by_xpath('//*[@id="page"]/div[3]/div/article/div/section/div/ul/li[1]/div/div/div[2]/a').get_attribute("href")
-    driver.get(href)
-    time.sleep(3)
-    html=driver.page_source
-    soup=bs(html)
-    results2=soup.find("div", id="primary_column")
-    paragraphs = results2.find_all('p')
-    for paragraph in paragraphs:
-        news_p=paragraph.text
+    news_p=soup.find(class_="article_teaser_body").text
 
     #Visit the url for JPL Featured Space Image
     mars_image_url="https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html"   
@@ -39,11 +30,13 @@ def scrape_info():
     img=soup.find(class_="showimg")
     for link in soup("a", "showimg", href=True):
         img_href=(link['href'])
-    featured_image_url=(f'"https://data-class-jpl-space.s3.amazonaws.com/JPL_Space{img_href}"')
+    featured_image_url=(f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{img_href}')
     
     #Mars Facts webpage table
     mars_url="https://space-facts.com/mars/"
     mars_df=pd.read_html(mars_url)[0]
+    mars_df.columns=["Description", "Mars"]
+    mars_df.set_index("Description", inplace=True)
     html_string=mars_df.to_html()
 
     #Obtain high resolution images for each of Mar's hemispheres
