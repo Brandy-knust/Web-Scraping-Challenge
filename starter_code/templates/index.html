@@ -6,44 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars Data</title>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
+  <div class="container">
+    <div class="jumbotron jumbotron-style text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data!</a></p>
     </div>
     <div class="row">
-      <div class="col-md-12 news">
+      <div class="col-md-12">
         <h2>Latest Mars News</br></h2>
-        <h3>{{ return_data.LatestMarsNews }}</h3></br>
-        <h4> {{ return_data.News }}</h4>
+        <h3>{{return_data.LatestMarsNews}}</h3></br>
+        <h4> {{return_data.News}}</h4>
       </div>
 
     <div class="row">
-      <div class="col-md-8 feature">
+      <div class="col-md-8">
         <h2>Featured Mars Image</h2>
-        <img src={{ return_data.FeaturedMarsImage }}>
+        <img src={{return_data.FeaturedMarsImage}}>
       </div>
-      <div class="col-md-4 table">
+      <div class="col-md-4">
         <h3>Mars Facts</h3></br>
-        <div class="table-responsive{-sm|-md|-lg|-xl}">
-          <data {{ return_data.MarsFacts }}></data>
-        </div>
+        <!-- <div class="table"> -->
+          {{return_data.MarsFacts | safe}}
+        <!-- </div> -->
       </div>
 
       <div class="row">
         <div class="col-md-12 label">
           <h3>Mars Hemispheres</h3></br>
         </div>
-        <div class="col-md-6 images labels">
-          <img {{ return_data.MarsHemispheres }}>
+        {% for item in MarsHemispheres %}
+        <div class="col-md-6">
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              {{ return_data.MarsHemispheres }}[]
+            </div>
+          </div>
         </div>
-      </div> 
-    </div>
+        {% endfor %}
+      </div>
+    </div> 
   </div>
 </body>
 
