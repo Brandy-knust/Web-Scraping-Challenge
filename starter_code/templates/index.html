@@ -39,7 +39,19 @@
         <div class="col-md-12 label">
           <h3>Mars Hemispheres</h3></br>
         </div>
-        {% for item in MarsHemispheres %}
+        {% for x in return_data.MarsHemispheres %}
+        <div class="col-md-6">
+          <div class="card">
+            <img src="{{x.hemisphere_image_urls}}" alt="...">
+        
+            <div class="caption">
+            <h3>{{x.hemisphere_titles}}</h3>
+         
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- {% for item in MarsHemispheres %}
         <div class="col-md-6">
           <div class="card" style="width: auto;">
             <div class="card-body">
@@ -47,7 +59,7 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        {% endfor %} -->
       </div>
     </div> 
   </div>
